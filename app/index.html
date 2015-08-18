@@ -10,20 +10,22 @@
   </head>
   <body>
   
-    <p>Hello, {{name}}!</p>
-    <ul>
-      <li ng-repeat="phone in phones">
-        <span>{{phone.name}}</span>
-        <p>{{phone.snippet}}</p>
-      </li>
-    </ul>
-    <p>Total number of phones:  {{phones.length}}</p>
-    <table>
-      <tr><th>row number</th></tr>
-      <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
-    </table>
+    <!--div>
+      <p>Hello, {{name}}!</p>
+      <ul>
+        <li ng-repeat="phone in phones">
+          <span>{{phone.name}}</span>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+      <p>Total number of phones:  {{phones.length}}</p>
+      <table>
+        <tr><th>row number</th></tr>
+        <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
+      </table>
+    </div-->
 
-    <div class="container-fluid">
+    <!--div class="container-fluid">
       <div class="row">
         <div class="col-md-2">
           search: <input ng-model="query">
@@ -37,6 +39,22 @@
           </ul>
         </div>
       </div>
+    </div-->
+
+    <div>
+      Search: <input ng-model="query">
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+        <option value="-age">Oldest</option>
+      </select>
+      <ul class="phones">
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+          <span>{{phone.name}}</span>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
     </div>
 
   </body>

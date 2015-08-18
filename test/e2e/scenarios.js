@@ -15,7 +15,7 @@ describe('PhoneCat App', function() {
 
       var phoneList = element.all(by.repeater('phone in phones'));
       var query = element(by.model('query'));
-      sleep(5000);
+      
       expect(phoneList.count()).toBe(3);
 
       query.sendKeys('nexus');
@@ -34,6 +34,5 @@ describe('PhoneCat App', function() {
       expect(browser.getTitle()).toMatch(/Google Phone Gallery: nexus$/);
     });
   });
-
-  });
+  
 });
